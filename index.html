@@ -4,128 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>OzoneGuard</title>
+    <title>OzoneGuard - Smart Classroom Cooling</title>
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
 
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    >
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             margin: 0;
-            padding-top: 70px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            background: #f4f9f7;
-            color: #183b3b;
+            font-family: Arial, sans-serif;
+            background: #f4fafa;
+            color: #123;
         }
 
-        .main-content {
-            flex: 1;
-        }
-
-        /* ================= NAVBAR ================= */
-
+        /* NAVBAR */
         .navbar {
-            background: #102f2f !important;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+            background: #00695c;
         }
 
-        .navbar-brand {
-            font-size: 1.45rem;
-            font-weight: 700;
+        .navbar-brand,
+        .nav-link {
             color: white !important;
         }
 
-        .navbar-brand i {
-            color: #62d8b4;
-            margin-right: 8px;
+        .nav-link:hover {
+            color: #b2dfdb !important;
         }
 
-        .navbar-nav .nav-link {
-            color: #e8f5f1 !important;
-            margin-left: 18px;
-            font-weight: 500;
-        }
+        /* HERO */
+        .hero {
+            min-height: 520px;
+            position: relative;
 
-        .navbar-nav .nav-link:hover {
-            color: #62d8b4 !important;
-        }
+            background:
+                linear-gradient(
+                    rgba(0, 35, 35, 0.58),
+                    rgba(0, 35, 35, 0.58)
+                ),
+                url("static/img/classroom.png");
 
-        /* ================= HERO ================= */
+            background-size: cover;
+            background-position: center;
 
-       .hero {
-    min-height: 520px;
-    position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    background:
-        linear-gradient(
-            rgba(0, 35, 35, 0.58),
-            rgba(0, 35, 35, 0.58)
-        ),
-        url("static/img/classroom.png");
-
-    background-size: cover;
-    background-position: center;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-    color: white;
-}
-        .hero-content {
-            max-width: 850px;
-            padding: 30px;
-        }
-
-        .hero-content i {
-            font-size: 55px;
-            color: #72e0bd;
-            margin-bottom: 20px;
+            text-align: center;
+            color: white;
         }
 
         .hero h1 {
-            font-size: 3.3rem;
-            font-weight: 700;
-            margin-bottom: 18px;
+            font-size: 48px;
+            font-weight: bold;
         }
 
         .hero p {
-            font-size: 1.15rem;
-            line-height: 1.7;
-            margin-bottom: 28px;
+            font-size: 20px;
+            max-width: 750px;
+            margin: 20px auto;
         }
 
-        .hero-btn {
-            background: #62d8b4;
+        .btn-main {
+            background: #26a69a;
             border: none;
-            color: #123535;
-            padding: 13px 30px;
-            border-radius: 30px;
-            font-weight: 700;
-            transition: 0.3s;
+            padding: 12px 25px;
+            color: white;
+            border-radius: 8px;
         }
 
-        .hero-btn:hover {
-            background: white;
-            color: #183b3b;
-            transform: translateY(-2px);
+        .btn-main:hover {
+            background: #00796b;
+            color: white;
         }
 
-        /* ================= SECTION ================= */
+        /* SECTION */
+        section {
+            padding: 70px 0;
+        }
 
         .section-title {
             text-align: center;
@@ -133,323 +98,108 @@
         }
 
         .section-title h2 {
-            font-weight: 700;
-            color: #183b3b;
+            color: #00695c;
+            font-weight: bold;
         }
 
-        .section-title p {
-            color: #657777;
-        }
-
-        /* ================= ANALYSIS ================= */
-
-        .analysis-section {
-            padding: 75px 0;
-        }
-
+        /* ANALYSIS CARD */
         .analysis-card {
             background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-        }
-
-        .input-box {
-            background: #f2f8f6;
+            padding: 35px;
             border-radius: 15px;
-            padding: 20px;
-            height: 100%;
-        }
-
-        .input-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: #d9f4eb;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #188064;
-            font-size: 20px;
-            margin-bottom: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
         }
 
         .form-label {
-            font-weight: 600;
-            color: #284b4b;
+            font-weight: bold;
         }
 
-        .form-control,
-        .form-select {
-            border-radius: 10px;
-            border: 1px solid #cbded8;
-            padding: 12px;
-        }
-
-        .analyze-btn {
-            background: #183f3f;
-            color: white;
-            border: none;
-            padding: 13px 30px;
-            border-radius: 30px;
-            font-weight: 600;
-            margin-top: 25px;
-        }
-
-        .analyze-btn:hover {
-            background: #287060;
-            color: white;
-        }
-
-        /* ================= RESULT ================= */
-
-        .result-section {
+        /* RESULT */
+        #resultSection {
             display: none;
-            margin-top: 35px;
         }
 
         .result-card {
-            background: linear-gradient(135deg, #e5f8f1, #f8fcfb);
-            border: 1px solid #c5e9dd;
-            border-radius: 20px;
+            background: #e0f2f1;
             padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
         }
 
-        .result-title {
-            font-weight: 700;
-            color: #174e42;
-        }
-
-        .recommendation-box {
+        .result-box {
             background: white;
             padding: 20px;
-            border-radius: 15px;
-            border-left: 5px solid #42ad8d;
-            margin-bottom: 25px;
-        }
-
-        .recommendation-box h4 {
-            color: #17604d;
-            font-weight: 700;
-        }
-
-        .metric-card {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
+            border-radius: 12px;
             text-align: center;
             height: 100%;
         }
 
-        .metric-card i {
-            font-size: 25px;
-            color: #32987a;
+        .result-box i {
+            font-size: 30px;
+            color: #00897b;
             margin-bottom: 10px;
         }
 
-        .metric-value {
-            font-size: 1.5rem;
-            font-weight: 700;
+        .result-box h4 {
+            color: #00695c;
+            font-weight: bold;
         }
 
-        .metric-label {
-            color: #6c7f7b;
-            font-size: 0.9rem;
-        }
-
-        .progress {
-            height: 12px;
-            border-radius: 20px;
-            background: #dceae6;
-        }
-
-        .progress-bar {
-            background: #38a783;
-        }
-
-        /* ================= FEATURES ================= */
-
-        .features-section {
-            background: #eaf5f1;
-            padding: 75px 0;
-        }
-
+        /* FEATURE CARDS */
         .feature-card {
             background: white;
-            border-radius: 20px;
             padding: 30px;
             text-align: center;
+            border-radius: 15px;
             height: 100%;
-            box-shadow: 0 7px 25px rgba(0,0,0,0.07);
-            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.07);
         }
 
-        .feature-card:hover {
-            transform: translateY(-7px);
-        }
-
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            background: #d9f4eb;
-            color: #188064;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
+        .feature-card i {
+            font-size: 40px;
+            color: #00897b;
+            margin-bottom: 20px;
         }
 
         .feature-card h4 {
-            font-weight: 700;
+            color: #00695c;
         }
 
-        /* ================= HOW IT WORKS ================= */
-
-        .how-section {
-            padding: 75px 0;
-        }
-
+        /* HOW IT WORKS */
         .step-card {
             text-align: center;
             padding: 25px;
         }
 
         .step-number {
-            width: 55px;
-            height: 55px;
-            background: #183f3f;
+            width: 60px;
+            height: 60px;
+            margin: auto;
+            background: #00897b;
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 18px;
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 25px;
+            font-weight: bold;
         }
 
-        /* ================= ABOUT ================= */
-
-        .about-section {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .about-box {
-            background: #f1f8f5;
-            border-radius: 22px;
-            padding: 40px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-        }
-
-        .about-icon {
-            width: 80px;
-            height: 80px;
-            background: #d9f4eb;
-            color: #188064;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 35px;
-            margin-bottom: 20px;
-        }
-
-        .about-box h2 {
-            font-weight: 700;
-            color: #183b3b;
-            margin-bottom: 20px;
-        }
-
-        .about-box h4 {
-            color: #17604d;
-            margin-top: 25px;
-            font-weight: 700;
-        }
-
-        .about-box p {
-            color: #5e706c;
-            line-height: 1.8;
-        }
-
-        .about-list {
-            padding-left: 0;
-            list-style: none;
-        }
-
-        .about-list li {
-            margin-bottom: 12px;
-            color: #526763;
-        }
-
-        .about-list i {
-            color: #32987a;
-            margin-right: 10px;
-        }
-
-        /* ================= FOOTER ================= */
-
+        /* FOOTER */
         footer {
-            background: #102f2f;
-            color: #dbece8;
-            padding: 50px 0 20px;
-        }
-
-        footer h5 {
+            background: #004d40;
             color: white;
-            font-weight: 700;
-            margin-bottom: 18px;
-        }
-
-        footer p {
-            color: #b7cfca;
-            line-height: 1.7;
-        }
-
-        .footer-link {
-            display: block;
-            color: #b7cfca;
-            text-decoration: none;
-            margin-bottom: 10px;
-            transition: 0.2s;
-        }
-
-        .footer-link:hover {
-            color: #62d8b4;
-            padding-left: 5px;
-        }
-
-        .footer-icon {
-            color: #62d8b4;
-            margin-right: 8px;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.15);
-            margin-top: 30px;
-            padding-top: 20px;
+            padding: 35px 0;
             text-align: center;
-            color: #9db8b2;
         }
 
-        @media (max-width: 768px) {
-
+        @media(max-width: 768px) {
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 35px;
             }
 
             .hero p {
-                font-size: 1rem;
-            }
-
-            .navbar-nav .nav-link {
-                margin-left: 0;
-            }
-
-            .about-box {
-                padding: 25px;
+                font-size: 17px;
             }
         }
     </style>
@@ -457,34 +207,30 @@
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
-
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg">
     <div class="container">
 
-        <a class="navbar-brand" href="#home">
+        <a class="navbar-brand fw-bold" href="#">
             <i class="fa-solid fa-leaf"></i>
             OzoneGuard
         </a>
 
-        <button class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarMenu">
-
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+        >
             <span class="navbar-toggler-icon"></span>
-
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarMenu">
+        <div class="collapse navbar-collapse" id="navbarNav">
 
             <ul class="navbar-nav ms-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#home">
-                        Home
-                    </a>
+                    <a class="nav-link" href="#home">Home</a>
                 </li>
 
                 <li class="nav-item">
@@ -509,33 +255,27 @@
 
         </div>
     </div>
-
 </nav>
 
 
-<div class="main-content">
+<!-- HERO -->
+<section class="hero" id="home">
 
-<!-- ================= HERO ================= -->
-
-<section id="home" class="hero">
-
-    <div class="hero-content">
-
-        <i class="fa-solid fa-snowflake"></i>
+    <div class="container">
 
         <h1>
             Smart Classroom Cooling Optimizer
         </h1>
 
         <p>
-            A smart and simple approach to classroom cooling
-            that balances thermal comfort with responsible
-            energy use.
+            A simple software solution that recommends
+            energy-efficient classroom cooling based on
+            temperature and occupancy.
         </p>
 
-        <a href="#analysis" class="btn hero-btn">
-            <i class="fa-solid fa-temperature-half me-2"></i>
+        <a href="#analysis" class="btn btn-main">
             Start Cooling Analysis
+            <i class="fa-solid fa-arrow-down"></i>
         </a>
 
     </div>
@@ -543,194 +283,146 @@
 </section>
 
 
-<!-- ================= COOLING ANALYSIS ================= -->
-
-<section id="analysis" class="analysis-section">
+<!-- ANALYSIS -->
+<section id="analysis">
 
     <div class="container">
 
         <div class="section-title">
 
             <h2>
+                <i class="fa-solid fa-temperature-half"></i>
                 Cooling Analysis
             </h2>
 
             <p>
-                Enter the classroom conditions to receive
-                a personalized cooling recommendation.
+                Enter the classroom conditions to get a cooling recommendation.
             </p>
 
         </div>
+
 
         <div class="analysis-card">
 
             <div class="row g-4">
 
-                <!-- Temperature -->
+                <!-- TEMPERATURE -->
+                <div class="col-md-6">
 
-                <div class="col-md-6 col-lg-3">
+                    <label class="form-label">
+                        Classroom Temperature (°C)
+                    </label>
 
-                    <div class="input-box">
-
-                        <div class="input-icon">
-                            <i class="fa-solid fa-temperature-high"></i>
-                        </div>
-
-                        <label class="form-label">
-                            Classroom Temperature
-                        </label>
-
-                        <input
-                            type="number"
-                            id="temperature"
-                            class="form-control"
-                            placeholder="Example: 32">
-
-                        <small class="text-muted">
-                            Temperature in °C
-                        </small>
-
-                    </div>
+                    <input
+                        type="number"
+                        id="temperature"
+                        class="form-control"
+                        placeholder="Example: 32"
+                    >
 
                 </div>
 
 
-                <!-- Students -->
+                <!-- STUDENTS -->
+                <div class="col-md-6">
 
-                <div class="col-md-6 col-lg-3">
+                    <label class="form-label">
+                        Number of Students
+                    </label>
 
-                    <div class="input-box">
-
-                        <div class="input-icon">
-                            <i class="fa-solid fa-users"></i>
-                        </div>
-
-                        <label class="form-label">
-                            Number of Students
-                        </label>
-
-                        <input
-                            type="number"
-                            id="students"
-                            class="form-control"
-                            placeholder="Example: 40">
-
-                        <small class="text-muted">
-                            Current student count
-                        </small>
-
-                    </div>
+                    <input
+                        type="number"
+                        id="students"
+                        class="form-control"
+                        placeholder="Example: 40"
+                    >
 
                 </div>
 
 
-                <!-- Occupancy -->
+                <!-- OCCUPANCY -->
+                <div class="col-md-6">
 
-                <div class="col-md-6 col-lg-3">
+                    <label class="form-label">
+                        Occupancy Level
+                    </label>
 
-                    <div class="input-box">
+                    <select id="occupancy" class="form-select">
 
-                        <div class="input-icon">
-                            <i class="fa-solid fa-building"></i>
-                        </div>
+                        <option value="">
+                            Select occupancy
+                        </option>
 
-                        <label class="form-label">
-                            Occupancy Level
-                        </label>
+                        <option value="low">
+                            Low
+                        </option>
 
-                        <select id="occupancy" class="form-select">
+                        <option value="medium">
+                            Medium
+                        </option>
 
-                            <option value="">
-                                Select level
-                            </option>
+                        <option value="high">
+                            High
+                        </option>
 
-                            <option value="low">
-                                Low
-                            </option>
-
-                            <option value="medium">
-                                Medium
-                            </option>
-
-                            <option value="high">
-                                High
-                            </option>
-
-                        </select>
-
-                        <small class="text-muted">
-                            Classroom occupancy
-                        </small>
-
-                    </div>
+                    </select>
 
                 </div>
 
 
-                <!-- AC Temperature -->
+                <!-- AC TEMP -->
+                <div class="col-md-6">
 
-                <div class="col-md-6 col-lg-3">
+                    <label class="form-label">
+                        Current AC Temperature (°C)
+                    </label>
 
-                    <div class="input-box">
-
-                        <div class="input-icon">
-                            <i class="fa-solid fa-snowflake"></i>
-                        </div>
-
-                        <label class="form-label">
-                            Current AC Temperature
-                        </label>
-
-                        <input
-                            type="number"
-                            id="acTemp"
-                            class="form-control"
-                            placeholder="Example: 20">
-
-                        <small class="text-muted">
-                            Current AC setting in °C
-                        </small>
-
-                    </div>
+                    <input
+                        type="number"
+                        id="acTemp"
+                        class="form-control"
+                        placeholder="Example: 20"
+                    >
 
                 </div>
 
-            </div>
 
+                <!-- BUTTON -->
+                <div class="col-12 text-center">
 
-            <div class="text-center">
+                    <button
+                        class="btn btn-main"
+                        onclick="analyzeCooling()"
+                    >
 
-                <button
-                    class="btn analyze-btn"
-                    onclick="analyzeCooling()">
+                        <i class="fa-solid fa-bolt"></i>
+                        Analyze Cooling
 
-                    <i class="fa-solid fa-chart-line me-2"></i>
-                    Analyze Cooling
+                    </button>
 
-                </button>
+                </div>
 
             </div>
 
 
             <!-- RESULT -->
-
-            <div id="resultSection" class="result-section">
+            <div id="resultSection">
 
                 <div class="result-card">
 
-                    <h3 class="result-title mb-4">
-                        <i class="fa-solid fa-lightbulb me-2"></i>
+                    <h3 class="text-center mb-4">
                         Cooling Recommendation
                     </h3>
 
-                    <div class="recommendation-box">
 
-                        <h4 id="recommendation">
-                            Recommendation
-                        </h4>
+                    <div class="text-center mb-4">
+
+                        <h2 id="recommendation">
+                            -
+                        </h2>
 
                         <p id="recommendationText">
-                            Your recommendation will appear here.
+                            -
                         </p>
 
                     </div>
@@ -738,84 +430,80 @@
 
                     <div class="row g-3">
 
+                        <!-- AC -->
                         <div class="col-md-3">
 
-                            <div class="metric-card">
+                            <div class="result-box">
 
-                                <i class="fa-solid fa-temperature-half"></i>
+                                <i class="fa-solid fa-snowflake"></i>
 
-                                <div
-                                    class="metric-value"
-                                    id="recommendedTemp">
-                                    -- °C
-                                </div>
-
-                                <div class="metric-label">
+                                <h4>
                                     Recommended AC
-                                </div>
+                                </h4>
+
+                                <p id="recommendedTemp">
+                                    -
+                                </p>
 
                             </div>
 
                         </div>
 
 
+                        <!-- STUDENTS -->
                         <div class="col-md-3">
 
-                            <div class="metric-card">
+                            <div class="result-box">
 
                                 <i class="fa-solid fa-users"></i>
 
-                                <div
-                                    class="metric-value"
-                                    id="studentResult">
-                                    --
-                                </div>
-
-                                <div class="metric-label">
+                                <h4>
                                     Students
-                                </div>
+                                </h4>
+
+                                <p id="studentResult">
+                                    -
+                                </p>
 
                             </div>
 
                         </div>
 
 
+                        <!-- SAVING -->
                         <div class="col-md-3">
 
-                            <div class="metric-card">
-
-                                <i class="fa-solid fa-bolt"></i>
-
-                                <div
-                                    class="metric-value"
-                                    id="saving">
-                                    --%
-                                </div>
-
-                                <div class="metric-label">
-                                    Saving Indicator
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="col-md-3">
-
-                            <div class="metric-card">
+                            <div class="result-box">
 
                                 <i class="fa-solid fa-leaf"></i>
 
-                                <div
-                                    class="metric-value"
-                                    id="efficiency">
-                                    --%
-                                </div>
+                                <h4>
+                                    Saving Indicator
+                                </h4>
 
-                                <div class="metric-label">
-                                    Efficiency Indicator
-                                </div>
+                                <p id="saving">
+                                    -
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- EFFICIENCY -->
+                        <div class="col-md-3">
+
+                            <div class="result-box">
+
+                                <i class="fa-solid fa-chart-line"></i>
+
+                                <h4>
+                                    Efficiency
+                                </h4>
+
+                                <p id="efficiency">
+                                    -
+                                </p>
 
                             </div>
 
@@ -824,37 +512,37 @@
                     </div>
 
 
+                    <!-- PROGRESS -->
                     <div class="mt-4">
 
-                        <div class="d-flex justify-content-between mb-2">
-
-                            <strong>
-                                Energy Efficiency Indicator
-                            </strong>
-
-                            <span id="efficiencyText">
-                                0%
-                            </span>
-
-                        </div>
+                        <h5>
+                            Cooling Efficiency
+                        </h5>
 
                         <div class="progress">
 
                             <div
                                 id="efficiencyBar"
                                 class="progress-bar"
-                                style="width:0%">
-                            </div>
+                                role="progressbar"
+                                style="width: 0%"
+                            ></div>
 
                         </div>
+
+                        <p class="mt-2">
+                            Efficiency:
+                            <strong id="efficiencyText">0%</strong>
+                        </p>
 
                     </div>
 
 
+                    <!-- SUGGESTIONS -->
                     <div class="mt-4">
 
                         <h5>
-                            <i class="fa-solid fa-list-check me-2"></i>
+                            <i class="fa-solid fa-lightbulb"></i>
                             Suggested Actions
                         </h5>
 
@@ -873,22 +561,16 @@
 </section>
 
 
-<!-- ================= FEATURES ================= -->
-
-<section class="features-section">
+<!-- FEATURES -->
+<section>
 
     <div class="container">
 
         <div class="section-title">
 
             <h2>
-                Smart Cooling Features
+                Key Features
             </h2>
-
-            <p>
-                Simple recommendations for comfortable
-                and responsible classroom cooling.
-            </p>
 
         </div>
 
@@ -899,17 +581,15 @@
 
                 <div class="feature-card">
 
-                    <div class="feature-icon">
-                        <i class="fa-solid fa-temperature-half"></i>
-                    </div>
+                    <i class="fa-solid fa-temperature-half"></i>
 
                     <h4>
                         Temperature Control
                     </h4>
 
                     <p>
-                        Recommends a suitable AC temperature
-                        based on classroom conditions.
+                        Uses classroom temperature to suggest
+                        suitable cooling levels.
                     </p>
 
                 </div>
@@ -921,17 +601,15 @@
 
                 <div class="feature-card">
 
-                    <div class="feature-icon">
-                        <i class="fa-solid fa-people-group"></i>
-                    </div>
+                    <i class="fa-solid fa-users"></i>
 
                     <h4>
                         Occupancy Awareness
                     </h4>
 
                     <p>
-                        Considers student count and occupancy
-                        while generating cooling recommendations.
+                        Considers the number of students and
+                        occupancy level.
                     </p>
 
                 </div>
@@ -943,17 +621,15 @@
 
                 <div class="feature-card">
 
-                    <div class="feature-icon">
-                        <i class="fa-solid fa-leaf"></i>
-                    </div>
+                    <i class="fa-solid fa-leaf"></i>
 
                     <h4>
                         Energy Saving
                     </h4>
 
                     <p>
-                        Encourages practical cooling adjustments
-                        that can reduce unnecessary energy use.
+                        Encourages responsible cooling and
+                        reduces unnecessary energy use.
                     </p>
 
                 </div>
@@ -967,9 +643,8 @@
 </section>
 
 
-<!-- ================= HOW IT WORKS ================= -->
-
-<section id="how" class="how-section">
+<!-- HOW IT WORKS -->
+<section id="how">
 
     <div class="container">
 
@@ -979,14 +654,10 @@
                 How It Works
             </h2>
 
-            <p>
-                Three simple steps to optimize classroom cooling.
-            </p>
-
         </div>
 
 
-        <div class="row g-4">
+        <div class="row">
 
             <div class="col-md-4">
 
@@ -996,14 +667,13 @@
                         1
                     </div>
 
-                    <h4>
-                        Enter Conditions
+                    <h4 class="mt-3">
+                        Enter Details
                     </h4>
 
                     <p>
-                        Enter the classroom temperature,
-                        student count, occupancy level,
-                        and current AC temperature.
+                        Enter classroom temperature,
+                        students and AC settings.
                     </p>
 
                 </div>
@@ -1019,13 +689,13 @@
                         2
                     </div>
 
-                    <h4>
+                    <h4 class="mt-3">
                         Analyze
                     </h4>
 
                     <p>
-                        The rule-based system evaluates
-                        the entered classroom conditions.
+                        The rule-based system analyzes
+                        the classroom conditions.
                     </p>
 
                 </div>
@@ -1041,13 +711,13 @@
                         3
                     </div>
 
-                    <h4>
+                    <h4 class="mt-3">
                         Get Recommendation
                     </h4>
 
                     <p>
-                        The system displays a recommended
-                        AC setting and practical energy-saving actions.
+                        The system displays a suitable
+                        cooling recommendation.
                     </p>
 
                 </div>
@@ -1061,134 +731,42 @@
 </section>
 
 
-<!-- ================= EXTENDED ABOUT ================= -->
-
-<section id="about" class="about-section">
+<!-- ABOUT -->
+<section id="about">
 
     <div class="container">
 
-        <div class="about-box">
+        <div class="section-title">
 
-            <div class="text-center">
+            <h2>
+                About OzoneGuard
+            </h2>
 
-                <div class="about-icon mx-auto">
+        </div>
 
-                    <i class="fa-solid fa-leaf"></i>
+        <div class="row justify-content-center">
 
-                </div>
+            <div class="col-md-9 text-center">
 
-                <h2>
-                    About OzoneGuard
-                </h2>
+                <p>
+                    OzoneGuard is a software-based prototype designed
+                    to encourage energy-efficient cooling practices
+                    in classrooms.
+                </p>
+
+                <p>
+                    The system considers temperature and occupancy
+                    conditions and provides simple recommendations
+                    for responsible AC usage.
+                </p>
+
+                <p>
+                    Future development can include sensors,
+                    weather data, smart AC integration and
+                    machine learning-based energy prediction.
+                </p>
 
             </div>
-
-
-            <p>
-                <strong>OzoneGuard</strong> is a smart classroom
-                cooling optimization concept designed to encourage
-                energy-efficient and responsible cooling practices
-                in educational environments.
-            </p>
-
-
-            <p>
-                Classrooms can experience different temperature
-                and occupancy conditions throughout the day.
-                However, cooling systems may continue operating
-                at the same setting even when classroom conditions
-                change. This can lead to unnecessary energy use.
-            </p>
-
-
-            <h4>
-                <i class="fa-solid fa-bullseye me-2"></i>
-                Our Objective
-            </h4>
-
-            <p>
-                The main objective of OzoneGuard is to provide
-                simple, understandable cooling recommendations
-                based on classroom temperature, student count,
-                occupancy level, and the current AC setting.
-            </p>
-
-
-            <h4>
-                <i class="fa-solid fa-gears me-2"></i>
-                How OzoneGuard Helps
-            </h4>
-
-            <ul class="about-list">
-
-                <li>
-                    <i class="fa-solid fa-check"></i>
-                    Encourages moderate AC temperature settings.
-                </li>
-
-                <li>
-                    <i class="fa-solid fa-check"></i>
-                    Considers classroom occupancy before recommending cooling.
-                </li>
-
-                <li>
-                    <i class="fa-solid fa-check"></i>
-                    Encourages the use of fans for better air circulation.
-                </li>
-
-                <li>
-                    <i class="fa-solid fa-check"></i>
-                    Suggests natural ventilation when conditions are suitable.
-                </li>
-
-                <li>
-                    <i class="fa-solid fa-check"></i>
-                    Helps users become more aware of unnecessary cooling.
-                </li>
-
-            </ul>
-
-
-            <h4>
-                <i class="fa-solid fa-code me-2"></i>
-                Current Prototype
-            </h4>
-
-            <p>
-                The current prototype is developed using
-                <strong>HTML, CSS, JavaScript, and rule-based logic</strong>.
-                It does not require sensors or a backend system.
-                Users manually enter classroom conditions and
-                receive an immediate recommendation.
-            </p>
-
-
-            <h4>
-                <i class="fa-solid fa-rocket me-2"></i>
-                Future Scope
-            </h4>
-
-            <p>
-                In the future, OzoneGuard can be expanded with
-                IoT sensors, real-time temperature monitoring,
-                occupancy detection, weather information,
-                smart AC integration, machine learning,
-                and energy-consumption tracking.
-            </p>
-
-
-            <h4>
-                <i class="fa-solid fa-earth-asia me-2"></i>
-                Our Vision
-            </h4>
-
-            <p>
-                Our vision is to create smarter classrooms where
-                cooling systems are used efficiently without
-                compromising classroom comfort. By combining
-                technology with sustainable practices, OzoneGuard
-                aims to support energy-conscious educational spaces.
-            </p>
 
         </div>
 
@@ -1196,113 +774,37 @@
 
 </section>
 
-</div>
 
-
-<!-- ================= FOOTER ================= -->
-
+<!-- FOOTER -->
 <footer>
 
     <div class="container">
 
-        <div class="row g-4">
+        <h4>
+            <i class="fa-solid fa-leaf"></i>
+            OzoneGuard
+        </h4>
 
-            <!-- Brand -->
+        <p>
+            Smart Cooling • Energy Efficiency • Sustainable Classrooms
+        </p>
 
-            <div class="col-md-4">
-
-                <h5>
-                    <i class="fa-solid fa-leaf footer-icon"></i>
-                    OzoneGuard
-                </h5>
-
-                <p>
-                    Smart classroom cooling for comfortable
-                    learning spaces and responsible energy use.
-                </p>
-
-            </div>
-
-
-            <!-- QUICK LINKS -->
-
-            <div class="col-md-4">
-
-                <h5>
-                    Quick Links
-                </h5>
-
-                <a href="#home" class="footer-link">
-                    <i class="fa-solid fa-angle-right footer-icon"></i>
-                    Home
-                </a>
-
-                <a href="#analysis" class="footer-link">
-                    <i class="fa-solid fa-angle-right footer-icon"></i>
-                    Cooling Analysis
-                </a>
-
-                <a href="#how" class="footer-link">
-                    <i class="fa-solid fa-angle-right footer-icon"></i>
-                    How It Works
-                </a>
-
-                <a href="#about" class="footer-link">
-                    <i class="fa-solid fa-angle-right footer-icon"></i>
-                    About OzoneGuard
-                </a>
-
-            </div>
-
-
-            <!-- PROJECT -->
-
-            <div class="col-md-4">
-
-                <h5>
-                    Project Focus
-                </h5>
-
-                <p>
-                    <i class="fa-solid fa-temperature-half footer-icon"></i>
-                    Energy-Efficient Cooling
-                </p>
-
-                <p>
-                    <i class="fa-solid fa-leaf footer-icon"></i>
-                    Sustainable Classrooms
-                </p>
-
-                <p>
-                    <i class="fa-solid fa-lightbulb footer-icon"></i>
-                    Smart Recommendations
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="footer-bottom">
-
-            <p class="mb-0">
-                © 2026 OzoneGuard | Smart Classroom Cooling Optimizer
-            </p>
-
-        </div>
+        <p>
+            Smart Classroom Cooling Optimizer
+        </p>
 
     </div>
 
 </footer>
 
 
-<!-- Bootstrap JS -->
+<!-- BOOTSTRAP JS -->
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-
-<!-- ================= JAVASCRIPT ================= -->
-
+<!-- JAVASCRIPT -->
 <script>
 
 function analyzeCooling() {
@@ -1319,6 +821,8 @@ function analyzeCooling() {
     const acTemp =
         parseFloat(document.getElementById("acTemp").value);
 
+
+    /* VALIDATION */
 
     if (
         isNaN(temperature) ||
@@ -1339,9 +843,12 @@ function analyzeCooling() {
     let recommendationText;
 
 
+    /* TEMPERATURE ANALYSIS */
+
     if (temperature >= 35) {
 
         recommendedTemp = 23;
+
         saving = 8;
 
         recommendation = "High Cooling Requirement";
@@ -1354,6 +861,7 @@ function analyzeCooling() {
     else if (temperature >= 30) {
 
         recommendedTemp = 24;
+
         saving = 15;
 
         recommendation = "Balanced Cooling Recommended";
@@ -1366,6 +874,7 @@ function analyzeCooling() {
     else {
 
         recommendedTemp = 25;
+
         saving = 25;
 
         recommendation = "Energy-Saving Mode";
@@ -1376,25 +885,49 @@ function analyzeCooling() {
     }
 
 
+    /* OCCUPANCY ANALYSIS */
+
     if (occupancy === "high") {
+
         saving -= 3;
+
     }
 
     else if (occupancy === "low") {
+
         saving += 5;
+
     }
 
+
+    /* CURRENT AC TEMPERATURE */
 
     if (acTemp >= recommendedTemp) {
+
         saving += 5;
+
     }
 
 
-    saving = Math.max(0, Math.min(saving, 40));
+    /* LIMIT SAVING */
+
+    saving =
+        Math.max(
+            0,
+            Math.min(saving, 40)
+        );
+
+
+    /* EFFICIENCY */
 
     const efficiency =
-        Math.max(50, 100 - saving);
+        Math.max(
+            50,
+            100 - saving
+        );
 
+
+    /* DISPLAY RESULTS */
 
     document.getElementById("recommendation").textContent =
         recommendation;
@@ -1421,11 +954,12 @@ function analyzeCooling() {
         efficiency + "%";
 
 
+    /* SUGGESTIONS */
+
     const suggestions =
         document.getElementById("suggestionsList");
 
     suggestions.innerHTML = "";
-
 
     let actions = [];
 
@@ -1436,7 +970,9 @@ function analyzeCooling() {
             "Avoid unnecessarily low AC temperature settings."
         );
 
-    } else {
+    }
+
+    else {
 
         actions.push(
             "Maintain the recommended AC temperature."
@@ -1481,7 +1017,8 @@ function analyzeCooling() {
 
     actions.forEach(function(action) {
 
-        const li = document.createElement("li");
+        const li =
+            document.createElement("li");
 
         li.textContent = action;
 
@@ -1490,13 +1027,20 @@ function analyzeCooling() {
     });
 
 
+    /* SHOW RESULT */
+
     document.getElementById("resultSection").style.display =
         "block";
 
 
+    /* SCROLL */
+
     document.getElementById("resultSection").scrollIntoView({
+
         behavior: "smooth",
+
         block: "start"
+
     });
 
 }
