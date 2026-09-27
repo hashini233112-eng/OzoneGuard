@@ -27,18 +27,28 @@
         }
 
         /* NAVBAR */
-        .navbar {
-            background: #004d40;
-        }
+       /* NAVBAR */
+.navbar{
+    background:#004D40 !important;
+    padding:12px 0;
+}
 
-        .navbar-brand,
-        .nav-link {
-            color: white !important;
-        }
+.navbar-brand{
+    color:white !important;
+    font-size:1.35rem;
+    font-weight:700;
+}
 
-        .nav-link:hover {
-            color: #b2dfdb !important;
-        }
+.nav-link{
+    color:white !important;
+    font-weight:500;
+    margin-left:20px;
+}
+
+.nav-link:hover{
+    color:#A7F3D0 !important;
+}
+
 
         /* HERO */
         .hero {
@@ -186,13 +196,13 @@
         }
 
         /* FOOTER */
-        footer {
-            background: #004d40;
-            color: white;
-            padding: 35px 0;
-            text-align: center;
-        }
-
+        /* FOOTER */
+footer{
+    background:#004D40;
+    color:white;
+    padding:35px 0;
+    text-align:center;
+}
         @media(max-width: 768px) {
             .hero h1 {
                 font-size: 35px;
@@ -208,57 +218,36 @@
 <body>
 
 <!-- NAVBAR -->
-<nav><a class="navbar-brand fw-bold d-flex align-items-center" href="#">
-    <img src="static/img/logo.jpeg"
-         alt="OzoneGuard Logo"
-         width="42"
-         height="42"
-         class="me-2 rounded-circle">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
 
-    <span>OzoneGuard</span>
-</a>
+    <a class="navbar-brand d-flex align-items-center" href="#home">
+      <img src="static/img/logo.jpeg"
+           alt="OzoneGuard Logo"
+           width="42"
+           height="42"
+           class="rounded-circle me-2">
+      OzoneGuard
+    </a>
 
-        <button
-            class="navbar-toggler"
+    <button class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-        >
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-
-            <ul class="navbar-nav ms-auto">
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#home">Home</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#analysis">
-                        Cooling Analysis
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#how">
-                        How It Works
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">
-                        About
-                    </a>
-                </li>
-
-            </ul>
-
-        </div>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#analysis">Cooling Analysis</a></li>
+        <li class="nav-item"><a class="nav-link" href="#how">How It Works</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+      </ul>
     </div>
-</nav>
 
+  </div>
+</nav>
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -779,26 +768,34 @@
 
 <!-- FOOTER -->
 <footer>
+  <div class="container">
 
-   <div class="d-flex justify-content-center align-items-center mb-3">
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <img src="static/img/logo.jpeg"
+           alt="OzoneGuard Logo"
+           width="55"
+           height="55"
+           class="rounded-circle me-3">
 
-    <img src="static/img/logo.jpeg"
-         alt="OzoneGuard Logo"
-         width="55"
-         height="55"
-         class="me-3 rounded-circle">
+      <h4 class="mb-0 text-white">OzoneGuard</h4>
+    </div>
 
-    <h4 class="mb-0 text-white">OzoneGuard</h4>
+    <p class="mb-2">
+      Smart Cooling • Energy Efficiency • Sustainable Classrooms
+    </p>
 
-</div>
+    <p class="mb-3">
+      Smart Classroom Cooling Optimizer
+    </p>
 
-<p>
-    Smart Cooling • Energy Efficiency • Sustainable Classrooms
-</p>
+    <hr style="border-color: rgba(255,255,255,0.2);">
 
-<p>
-    Smart Classroom Cooling Optimizer
-</p>&copy; 2026 OzoneGuard.</footer>
+    <p class="mb-0">
+      &copy 2026 All Rights Reserved
+    </p>
+
+  </div>
+</footer>
 
 
 <!-- BOOTSTRAP JS -->
